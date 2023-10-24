@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokemon Management with Vue.js</title>
+    <link rel="stylesheet" href="/src/assets/styles.css">
+</head>
+<body>
+    <div id="app" class="container">
+      <div class="header">
+          <h1>Pokemon</h1>
+          <p>Total Pokemon: {{ pokemons.length }}</p>
+      </div>
+      <div class="search">
+          <input type="text" v-model="searchText" placeholder="Search by Pokemon Name">
+          <button @click="searchPokemon">Search</button>
+      </div>
+      <div class="user-list">
+          <user-item v-for="pokemon in filteredPokemons" :key="pokemon.name" :pokemon="pokemon" @delete="deletePokemon"></user-item>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js"></script>
+    <script src="/src/components/pokemon.js"></script>
+</body>
+</html>
